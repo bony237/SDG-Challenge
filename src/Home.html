@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estimation Covid19</title>
+
+    <!--<link rel="stylesheet" href="bootstrap_V4/css/bootstrap.css">-->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      td{
+        color: brown;
+        font-size: large;
+      }
+    </style>
+
+</head>
+<body class="bg-light">
+
+    <div class="container text-center my-4">
+      <div class="h1 text-primary">Estimator COVID-19</div>
+      <div class="h6 text-info p-3 p-md-0 bg-white rounded-pill">Here you can get an impact estimatation of the evolution of Covid19 in AFRICA !</div>
+    </div>
+
+    <section class="container">
+      <form class="mt-5">
+        <!--dflex 2-->
+        <div class="d-flex font-italic flex-column flex-md-row my-4">
+          <!--dflex 2-->
+          <div class="form-group d-flex flex-row justify-content-around mx-md-1">
+            <div class="mx-md-1">
+              <label for="timeToElapse">Time to Elapse</label>
+              <input type="number" min=0 name="timeToElapse" id="timeToElapse" data-time-to-elapse class="form-control" required placeholder="Enter time to elapse">
+            </div>
+            <div class="mx-md-1">
+              <label for="periodType">Period Type</label>
+              <select type="text" name="periodType" id="periodType" data-period-type class="form-control" required>
+                  <option disabled>Select a period type</option>
+                  <option value="days">days</option>
+                  <option value="weeks">weeks</option>
+                  <option value="months">months</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group mx-md-1">
+            <label for="population">Population</label>
+            <input type="number" min=0 name="population" id="population" data-population class="form-control" required placeholder="Enter Population">
+          </div>
+
+
+          <div class="form-group mx-md-1">
+            <label for="reportedCases">Reported Cases</label>
+            <input type="number" min=0 name="reportedCases" id="reportedCases" data-reported-cases class="form-control" required placeholder="Enter Reported Cases (lower than the population)">
+          </div>
+          <div class="form-group mx-md-1">
+            <label for="totalHospitalBeds">Total Hopital beds</label>
+            <input type="number" min=0 name="totalHospitalBeds" id="totalHospitalBeds" data-total-hospital-beds class="form-control" required placeholder="Enter the total number of hospital beds">
+          </div>
+        </div>
+        
+  
+        <div>
+          <input type="submit" id="submitting" data-go-estimate class="btn btn-block btn-success font-weight-bold" value="Get an estimation">
+        </div>
+      </form>
+    </section>
+
+    <section class="container w-75 my-5 table-responsive">
+      <table class="table table-striped table-bordered text-center">
+        <thead>
+          <tr>
+            <th class="col-4"></th>
+            <th class="col-4">Impact</th>
+            <th class="col-4">SevereImpact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="currentlyInfected">
+            <th>Currently Infected</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="infectionsByRequestedTime">
+            <th>Infections By Requested Time</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="severeCasesByRequestedTime">
+            <th>Severe Cases By Requested Time</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="hospitalBedsByRequestedTime">
+            <th>Hospital Beds By Requested Time</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="casesForICUByRequestedTime">
+            <th>Cases For ICU By Requested Time</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="casesForVentilatorsByRequestedTime">
+            <th>Cases For Ventilators By Requested Time</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+          <tr id="dollarsInFlight">
+            <th>Dollars In Flight</th>
+            <td class="impact"></td>
+            <td class="severeImpact"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <script type="module" src="transaction.js"></script>
+    <script type="module" src="estimator.js"></script>
+
+</body>
+</html>
